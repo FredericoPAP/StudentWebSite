@@ -17,7 +17,7 @@ List the key features of your SPA. For example:
 
 ## Getting Started
 
-1. Clone the repository: `git clone https://github.com/FredPAP/Freda-Website.git`
+1. Clone the repository: `git clone https://github.com/FredericoPAP/Freda-Website.git`
 2. Open `index.html` in your web browser.
 
 Enjoy!

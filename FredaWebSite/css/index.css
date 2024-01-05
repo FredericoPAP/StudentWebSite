@@ -1,0 +1,67 @@
+body {
+    font-family:'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    background-image: url('output_image.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+header {
+    background-color: #357e98;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    margin: 20px;
+}
+
+section {
+    margin: 20px;
+}
+h1 {
+    color:aquamarine;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+h2 {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+.item {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: grey;         /* adjust as needed */
+}
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}
+
+#fredaPic {
+    height:300px;
+}
+
+#descBody,#workContent,#publicationsContent,#wipContent,#teachingExp {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgba(19, 193, 220, 0.499);
+}
+#teachingButtom {
+    color: #0e1010 ;
+}

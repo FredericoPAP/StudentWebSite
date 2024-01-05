@@ -56,12 +56,25 @@ footer {
 
 #fredaPic {
     height:300px;
+    float: left;
+    margin: 15px;
 }
 
 #descBody,#workContent,#publicationsContent,#wipContent,#teachingExp {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: rgba(19, 193, 220, 0.499);
+    overflow: hidden;
 }
+
 #teachingButtom {
     color: #0e1010 ;
 }
+
+.btn popovers {
+    --bs-popover-max-width: 200px;
+    --bs-popover-border-color: var(--bd-violet-bg);
+    --bs-popover-header-bg: var(--bd-violet-bg);
+    --bs-popover-header-color: var(--bs-white);
+    --bs-popover-body-padding-x: 1rem;
+    --bs-popover-body-padding-y: .5rem;
+  }

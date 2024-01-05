@@ -60,10 +60,13 @@ footer {
     margin: 15px;
 }
 
-#descBody,#workContent,#publicationsContent,#wipContent,#teachingExp {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+#descBody,#workContent,#publicationsContent,#wipContent,#contentAtBottom {
+    font-family:"Gill Sans", sans-serif;;
     background-color: rgba(19, 193, 220, 0.499);
     overflow: hidden;
+    margin-top: 80px;
+    padding: auto;
+    margin-right: 20px;
 }
 
 #teachingButtom {

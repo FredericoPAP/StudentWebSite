@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Wait for the DOM to be fully loaded
   
     // Get references to the button and the div
     var teachingButton = document.getElementById('teachingButton');

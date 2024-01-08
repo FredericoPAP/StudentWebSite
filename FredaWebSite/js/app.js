@@ -9,12 +9,21 @@ $(function () {
 $("[data-toggle=popover]")
   .popover({html:true})
 
-});
-
-var teachingButton = document.getElementById('teachingButton');
+  var teachingButton = document.getElementById('teachingButton');
 var teachingExperienceDiv = document.getElementById('teachingExp');
 var contentAtBottom = document.getElementById('contentAtBottom');
 var contentAdded = false;
+
+console.log(teachingButton);
+console.log(teachingExperienceDiv);
+/*teachingButton.addEventListener('click', function () {
+    
+    if (teachingExpDiv.style.display === 'none') {
+        teachingExpDiv.style.display = 'block';
+    } else {
+        teachingExpDiv.style.display = 'none';
+    }
+});*/
 
 // Teaching button click event
 teachingButton.addEventListener('click', function() {
@@ -36,7 +45,10 @@ teachingButton.addEventListener('click', function() {
     hidePubContent();
     hideWipContent();
 } 
+}); 
+
 });
+
 
 function showContent(contentId) {
     var contentElements = document.getElementsByClassName("content");
@@ -49,27 +61,25 @@ function showContent(contentId) {
     hideDescription();
     contentAtBottom.innerHTML = '';
     contentAdded = false;
-    
-    
-}
+};
 
 function hideDescription() {
     var descBody = document.getElementById('descBody');
     descBody.style.display = 'none';
-}
+};
 
 
 function hidePubContent() {
     var workContent = document.getElementById('publicationsContent');
     workContent.style.display = 'none';
-}
+};
 
 function hideWorkContent() {
     var workContent = document.getElementById('workContent');
     workContent.style.display = 'none';
-}
+};
 
 function hideWipContent() {
     var workContent = document.getElementById('wipContent');
     workContent.style.display = 'none';
-}
+};

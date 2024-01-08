@@ -5,21 +5,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
-  <link rel="stylesheet" href="css/index.css">
   <meta name="description" content="">
-
   <meta property="og:title" content="">
   <meta property="og:type" content="">
   <meta property="og:url" content="">
   <meta property="og:image" content="">
 
+  <link rel="stylesheet" href="css/index.css">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+<script src="js/app.js"></script>
+<script src="https://kit.fontawesome.com/133a409c74.js" crossorigin="anonymous"></script>
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#fafafa">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -47,7 +47,7 @@
                 </div>
                 <div id="collapseMessagesSetup" class="panel-collapse collapse">
                     <div>
-                        <a id="workingPapers"href="#" style="background-color:cornflowerblue; display: inline-block; padding: 5px;" 
+                        <a id="workingPapers" href="#" style="background-color:cornflowerblue; display: inline-block; padding: 5px;" 
                         onclick="showContent('workContent')"> Working Papers</a>
                         <a id="publications" href="#" style="background-color:cornflowerblue; display: inline-block; padding: 5px;"
                         onclick="showContent('publicationsContent')"> Publications</a>
@@ -59,7 +59,7 @@
         </div>
         </div>
         <div class="col">
-          <button id="teachingButton">Teaching</button>
+          <button type="button" class="btn btn-outline-primary" id="teachingButton">Teaching</button>
           <div id="teachingExp" style="display: none;">
             Microeconomics (undergraduate), teaching assistant, Nova SBE; Instructors: Antonieta Cunha e Sá, Sofia Franco, Pedro Martins, Susana Peralta                 2019 –
 Development Economics (undergraduate), teaching assistant, Nova SBE, Portugal; Instructor: Victoire Girard          2023
@@ -72,18 +72,44 @@ Macroeconomics of Financial Markets (graduate), grader, Nova SBE, Portugal; Inst
          <p
   href="#" role="button" class="btn popovers" data-toggle="popover" title=""
   data-content="<a href='CV_FM.pdf' target='blank' title='test add link'>Download</a>"
-  data-original-title="" target="_blank"
->
-  Curriculum Vitae
-        </p>
+  data-original-title="" target="_blank">CV</p>
         </div>
       </div>
-    </div>   
+    </div> 
+    <hr noshade="">  
 </header>
-<div>
-<h1>Frederica Mendonça</h1>
-<img id ="fredaPic" class="img-thumbnail" src="frederica_mendonca.jpg">
-</div>
+
+<div role="main" id="main">
+  
+  <div class="sidebar sticky">
+    <div itemscope="" itemtype="http://schema.org/Person">
+      <h1 id="fredinha">Frederica Mendonça</h1>
+        <div class="w3-round"><a><img id ="fredaPic" class="img-thumbnail" src="frederica_mendonca.jpg"></a>
+        </div>
+        <div class="author__content">
+          <p class="author__bio" style="font-size:15px; margin-top: 15px;"><strong>PHD Candidate </strong><br>
+            <strong><a href="https://www2.novasbe.unl.pt/en/" target="_blank" style="text-decoration:none">Nova SBE</a></strong></p>
+          <p class="author__bio" style="font-size:15px;"><strong>Research Affiliate</strong><br>
+            <strong><a href="https://novafrica.org/" target="_blank" style="text-decoration:none">NOVAFRICA</a>
+            </strong></p>
+        </div>
+        <div class="author__urls-wrapper">
+          <ul class="author__urls social-icons">
+            <li><i class="fas fa-envelope" aria-hidden="true">
+                </i>&nbsp; frederica.mendonca@novasbe.pt</li>
+            <li><a href="https://shorturl.at/orDPX" target="_blank">
+                <img src="x_logo.png" style="width:20px;height:20px;"> @fredam221</a></li>
+           
+            <li><a href="https://shorturl.at/dER29" target="blank">
+                <img src="linkedIn_logo.png" style="width:20px;height:20px;">
+                </a></li>
+            <li><br>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+<div id="contentBody">
 <div id="descBody">Hi! I am a PhD Student in Economics at Nova School of Business and Economics. I am affiliated with NOVAFRICA Knowledge Center.
     My research interests centre around urbanism and public policy design in developing countries. I have extensive experience designing and implementing field surveys and experiments. I am currently working in Mozambique.
 </div>
@@ -103,8 +129,8 @@ Macroeconomics of Financial Markets (graduate), grader, Nova SBE, Portugal; Inst
   (with Alex Armand, Wayne Sandholtz, and Pedro Vicente)</div>
   
 <div id="contentAtBottom"></div>
-   
-    <script src="js/app.js"></script>
+</div>
+</div>   
 </body>
 <footer>
 

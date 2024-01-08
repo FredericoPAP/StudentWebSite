@@ -1,5 +1,5 @@
 body {
-    font-family:'Courier New', Courier, monospace;
+    font-family:"Gill Sans", sans-serif;
     margin: 0;
     padding: 0;
     background-image: url('output_image.jpeg');
@@ -7,22 +7,53 @@ body {
     background-position: center;
     background-attachment: fixed;
 }
+
+html {
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
+}
+
+@media (min-width: 48em) {
+    html {
+        font-size:18px
+    }
+}
+
 header {
-    background-color: #357e98;
-    color: white;
+    background-color: #ffffff00;
+    color: rgba(255, 255, 255, 0);
     text-align: center;
     padding: 1em;
-    margin: 20px;
+    
+}
+
+#main {
+    display: flex;
+} 
+
+#contentBody {
+    flex-grow: 2; 
+    padding: 20px;
+  
+}
+
+hr {
+    color:#0e1010;
 }
 
 section {
     margin: 20px;
 }
-h1 {
-    color:aquamarine;
+
+#fredinha {
+    color:rgb(1, 1, 1);
     text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family:"Gill Sans", sans-serif;
 }
+
 h2 {
     color: #333;
     border-bottom: 2px solid #333;
@@ -34,16 +65,17 @@ h2 {
 }
 
 footer {
-    background-color: #333;
+    background-color:  #ffffff85;
     color: white;
     text-align:center;
     padding: 10px;
-    position: fixed;
     bottom: 0;
     width: 100%;
     margin-right: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
 }
-
 
 .panel-heading .accordion-toggle:after {
     /* symbol for "opening" panels */
@@ -52,22 +84,25 @@ footer {
     float: right;        /* adjust as needed */
     color: grey;         /* adjust as needed */
 }
+
 .panel-heading .accordion-toggle.collapsed:after {
     /* symbol for "collapsed" panels */
     content: "\e080";    /* adjust as needed, taken from bootstrap.css */
 }
 
 #fredaPic {
-    height:300px;
+    max-width:100%;
+    max-height:100%;
     float: left;
-    margin: 15px;
-
+    margin-bottom: 15px;
 }
+
 #fredaPic.img-thumbnail {
     background-color:gainsboro ;
 }
+
 #descBody,#workContent,#publicationsContent,#wipContent,#contentAtBottom {
-    font-family:"Gill Sans", sans-serif;;
+    font-family:"Gill Sans", sans-serif;
     background-color: rgba(19, 193, 220, 0.499);
     overflow: hidden;
     margin-top: 80px;
@@ -87,3 +122,38 @@ footer {
     --bs-popover-body-padding-x: 1rem;
     --bs-popover-body-padding-y: .5rem;
   }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 250px;
+    padding: 20px;
+    background-color: #ffffff85;
+    margin-bottom: 0px;
+    
+  }
+  
+  .sidebar .author__content {
+    text-align: center; 
+    margin-top: 10px; 
+    margin-right: 10px;
+  }
+  
+  .author__bio {
+    margin: 10px 0; 
+    font-size: 15px;
+  }
+  
+  .social-icons li {
+    margin-bottom: 10px;
+    list-style: none;
+  }
+  
+  
+  .social-icons img {
+    width: 42px;
+    height: 42px;
+    margin-right: 10px;
+  }
+  

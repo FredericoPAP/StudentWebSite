@@ -1,5 +1,5 @@
 body {
-    font-family:"Gill Sans", sans-serif;
+    font-family:"Gill Sans", sans-serif !important;
     margin: 0;
     padding: 0;
     background-image: url('output_image.jpeg');
@@ -13,14 +13,18 @@ html {
     background-color: #fff;
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%
+    -ms-text-size-adjust: 100%;
+    font-family:"Gill Sans", sans-serif;
 }
 
-@media (min-width: 48em) {
-    html {
-        font-size:18px
-    }
-}
+#squareText {
+    background-color: #ffffff9e; 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: start;
+    display: flex;
+  }
 
 header {
     background-color: #ffffff00;
@@ -37,28 +41,20 @@ header {
 #contentBody {
     flex-grow: 2; 
     padding: 20px;
-  
-}
-
-hr {
-    color:#0e1010;
+    min-width: 200px;
+    max-width: 1000px;
+    font-size: 18px;
 }
 
 section {
     margin: 20px;
 }
 
-#fredinha {
+#fredaPic {
     color:rgb(1, 1, 1);
-    text-align: center;
-    font-family:"Gill Sans", sans-serif;
+    text-align: center; 
 }
 
-h2 {
-    color: #333;
-    border-bottom: 2px solid #333;
-    padding-bottom: 5px;
-}
 
 .item {
     margin-bottom: 20px;
@@ -83,12 +79,9 @@ footer {
     content: "\e114";    /* adjust as needed, taken from bootstrap.css */
     float: right;        /* adjust as needed */
     color: grey;         /* adjust as needed */
+    max-width: 400px;
 }
 
-.panel-heading .accordion-toggle.collapsed:after {
-    /* symbol for "collapsed" panels */
-    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
-}
 
 #fredaPic {
     max-width:100%;
@@ -103,15 +96,15 @@ footer {
 
 #descBody,#workContent,#publicationsContent,#wipContent,#contentAtBottom {
     font-family:"Gill Sans", sans-serif;
-    background-color: rgba(19, 193, 220, 0.499);
+    
     overflow: hidden;
-    margin-top: 80px;
+    
     padding: auto;
     margin-right: 20px;
 }
 
 #teachingButtom {
-    color: #0e1010 ;
+    color: #0e1010;
 }
 
 .btn popovers {
@@ -121,9 +114,10 @@ footer {
     --bs-popover-header-color: var(--bs-white);
     --bs-popover-body-padding-x: 1rem;
     --bs-popover-body-padding-y: .5rem;
+    size: 300px;
   }
 
-  .sidebar {
+.sidebar {
     position: sticky;
     top: 0;
     left: 0;
@@ -131,29 +125,34 @@ footer {
     padding: 20px;
     background-color: #ffffff85;
     margin-bottom: 0px;
-    
-  }
+    min-width: 300px;
+}
   
-  .sidebar .author__content {
+.sidebar .author__content {
     text-align: center; 
     margin-top: 10px; 
     margin-right: 10px;
-  }
+}
   
-  .author__bio {
+.author__bio {
     margin: 10px 0; 
     font-size: 15px;
-  }
+}
   
-  .social-icons li {
+.social-icons li {
     margin-bottom: 10px;
     list-style: none;
-  }
+}
   
-  
-  .social-icons img {
-    width: 42px;
-    height: 42px;
+.social-icons img {
     margin-right: 10px;
-  }
+}
   
+#research, #teaching {
+    margin-right: 50px;
+    font-size: 30px;
+}
+
+#cv {
+    font-size: 20px;
+}

@@ -1,18 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
+    var descBody = document.getElementById("descBody");
 //CV download
 $("[data-toggle=popover]")
   .popover({html:true})
-
-  var isPageRefreshed = sessionStorage.getItem('isPageRefreshed');
-    console.log(isPageRefreshed);
-    var descBody = document.getElementById("descBody");
-  if (isPageRefreshed) {
-      descBody.style.display = "block";
-      
-  } else{
-     descBody.style.display = "none";
-  }
-  sessionStorage.setItem('isPageRefreshed', true);
 
     var teachingExperienceDiv = document.getElementById('teachingExp');
     var dynamicContentContainer = document.createElement('div');
@@ -28,17 +18,16 @@ document.getElementById('teaching').addEventListener('click',function() {
     while (contentContainer.firstChild) {
         contentContainer.removeChild(contentContainer.firstChild);
       }
-      dynamicContentContainer.innerHTML = '';
+    dynamicContentContainer.innerHTML = '';
     var contentDiv = document.createElement('div');
     var hr = document.createElement('hr');
     dynamicContentContainer.appendChild(hr);
     contentDiv.innerHTML = teachingExperienceDiv.innerHTML;
     dynamicContentContainer.appendChild(contentDiv);
     squareText.appendChild(dynamicContentContainer);
-    isPageRefreshed = false
-    if(!isPageRefreshed){
-        document.getElementById("descBody").style.display = "none";
-    }
+    squareText.style.display = 'block';
+    descBody.style.display = "none";
+    
 });
 
 document.getElementById('research').addEventListener('click', function() {
@@ -65,7 +54,6 @@ document.getElementById('research').addEventListener('click', function() {
         dynamicContentContainer.appendChild(contentDiv);
         squareText.appendChild(dynamicContentContainer);
         squareText.style.display = 'block';
-        
         
     });
     newDiv.appendChild(workLink);
@@ -106,20 +94,13 @@ document.getElementById('research').addEventListener('click', function() {
     clearDynamicContentContainer() 
     newDiv.appendChild(wipLink)
     contentContainer.appendChild(newDiv);
-    divWithLinksAdded = true;
-    document.getElementById('research').disabled= true;
-    console.log("DYNCONTENT CONTAINER" + dynamicContentContainer);
-    console.log("CONTENT CONTAINER" + contentContainer);
+    document.getElementById('research').disabled = true;
+    document.getElementById("descBody").style.display = "none";
    
-    isPageRefreshed = false;
-    if(!isPageRefreshed){
-        document.getElementById("descBody").style.display = "none";
-    }
-    console.log(isPageRefreshed);
   });
 
 function clearLinkDivs() {
-    var contentDiv = document.createElement('hr');
+     document.createElement('hr');
 }
 function clearDynamicContentContainer() {
     while (dynamicContentContainer.firstChild) {

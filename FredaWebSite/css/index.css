@@ -75,16 +75,6 @@ footer {
     margin-right: 0;
 }
 
-.panel-heading .accordion-toggle:after {
-    /* symbol for "opening" panels */
-    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
-    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
-    float: right;        /* adjust as needed */
-    color: grey;         /* adjust as needed */
-    max-width: 400px;
-}
-
-
 #fredaPic {
     max-width:100%;
     max-height:100%;
@@ -157,6 +147,7 @@ footer {
 
 #cv {
     font-size: 20px;
+    margin-left: -900px;
 }
 
 @keyframes fadeInOut {

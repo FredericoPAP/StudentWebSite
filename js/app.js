@@ -44,7 +44,7 @@ document.getElementById('research').addEventListener('click', function() {
     var workLink = document.createElement('a');
     workLink.id = 'workContent';
     workLink.href = '#work';
-    workLink.textContent = 'Work';
+    workLink.textContent = 'Working Papers';
     workLink.addEventListener('click', function() {
         clearDynamicContentContainer();
         var contentDiv = document.createElement('div');

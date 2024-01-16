@@ -1,66 +1,67 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var descBody = document.getElementById("descBody");
+$(document).ready(function() {
+    const squareText = $("#squareText");
+    const contentContainer = $("#contentContainer");
+    const dynamicContentContainer = $("<div></div>");
+    const hr = $('<p id="fakeHr">');
+    const linksContainer = $("#linksContainer");
+
+    $("#goToHome").on("click", function() {
+        location.reload();
+    });
+    
     //CV download
     $("[data-toggle=popover]").popover({html:true})
 
-    var teachingExperienceDiv = document.getElementById('teachingExp');
-    var dynamicContentContainer = document.createElement('div');
-    var workContent = document.getElementById('workContent');
-    var publicationsContent = document.getElementById('publicationsContent');
-    var wipContent = document.getElementById('wipContent');
-    var contentContainer = document.getElementById('contentContainer');
-    var newDiv = document.createElement('div');
-    var squareText = document.getElementById('squareText');
-    
     function clearDynamicContentContainer() {
-        while (dynamicContentContainer.firstChild) {
-            dynamicContentContainer.removeChild(dynamicContentContainer.firstChild);
-        }
+        dynamicContentContainer.empty();
+    }
+
+    function hideDescription() {
+        $("#descBody").hide();
     }
 
     function appendContent(content) {
         clearDynamicContentContainer();
-        const contentDiv = document.createElement('div');
-        const hr = document.createElement('hr');
-        dynamicContentContainer.appendChild(hr);
-        contentDiv.innerHTML = content.innerHTML;
-        dynamicContentContainer.appendChild(contentDiv);
-        squareText.appendChild(dynamicContentContainer);
-        squareText.style.display = 'block';
+        
+        dynamicContentContainer.append(content.html());
+        contentContainer.html(dynamicContentContainer.html());
+        squareText.show();
     }
 
-    document.getElementById('teaching').addEventListener('click', () => {
-        contentContainer.innerHTML = '';
-        dynamicContentContainer.innerHTML = '';
-        appendContent(teachingExperienceDiv);
-        descBody.style.display = 'none';
+    function createLink(id, content, text) {
+        const linkElement = $("<a>")
+            .attr("href", "#" + id)
+            .text(text)
+            .on("click", function() {
+            
+                appendContent(content);
+            });
+
+        linksContainer.append(linkElement, hr);
+    }
+
+    $("#teaching").on("click", function() {
+        clearDynamicContentContainer();
+        contentContainer.empty();
+        appendContent($("#teachingExp"));
+        hideDescription();
+        linksContainer.empty();
     });
 
-    document.getElementById('research').addEventListener('click', () => {
-        contentContainer.innerHTML = '';
-        dynamicContentContainer.innerHTML = '';
-        newDiv.innerHTML='';
-        squareText.style.display='none';
+    $("#research").on("click", function() {
+        clearDynamicContentContainer();
+        contentContainer.empty();
+        linksContainer.empty();
+        hideDescription()
+        squareText.hide();
         const links = [
-            { id: 'workContent', href: '#work', text: 'Working Papers', content: workContent },
-            { id: 'publicationsContent', href: '#publications', text: 'Publications', content: publicationsContent },
-            { id: 'wipContent', href: '#wip', text: 'Work in Progress', content: wipContent }
+            { id: 'workContent', content: $("#workContent"), text: 'Working Papers' },
+            { id: 'publicationsContent', content: $("#publicationsContent"), text: 'Publications' },
+            { id: 'wipContent', content: $("#wipContent"), text: 'Work in Progress' }
         ];
 
-        links.forEach(link => {
-            
-            const linkElement = document.createElement('a');
-            linkElement.id = link.id;
-            linkElement.href = link.href;
-            linkElement.textContent = link.text;
-
-            linkElement.addEventListener('click', () => appendContent(link.content));
-            newDiv.appendChild(linkElement);
-            console.log(linkElement);
+        $.each(links, function(_, link) {
+            createLink(link.id, link.content, link.text);
         });
-
-        contentContainer.appendChild(newDiv);
-        document.getElementById('research').disabled = true;
-        descBody.style.display = 'none';
     });
 });

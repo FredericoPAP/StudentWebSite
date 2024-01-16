@@ -20,12 +20,13 @@ html {
 #squareText {
     background-color: #ffffff9e; 
     padding: 20px;
-    padding-top: 0;
+    
     border-radius: 10px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: start;
     display: flex;
-    animation: fadeInOut 3s; 
+    animation: fadeInOut 3s;
+    
   }
 
 header {
@@ -131,7 +132,7 @@ footer {
     font-size: 15px;
 }
   
-.social-icons li {
+.personalLinks li {
     margin-bottom: 10px;
     list-style: none;
 }
@@ -147,7 +148,21 @@ footer {
 
 #cv {
     font-size: 20px;
-    margin-left: -900px;
+    position: absolute;
+    top: 0;
+    left: 80px;
+  
+}
+
+#linksContainer a {
+    margin-right: 20px;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+#fakeHr {
+    border-bottom: 1.5px solid #0927cf4d; 
+    padding-bottom: 20px; 
+    margin-bottom: 20px
 }
 
 @keyframes fadeInOut {

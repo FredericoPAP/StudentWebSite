@@ -4,7 +4,7 @@ body {
     padding: 0;
     background-image: url('output_image.jpeg');
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-attachment: fixed;
 }
 
@@ -20,19 +20,19 @@ html {
 #squareText {
     background-color: #ffffff9e; 
     padding: 20px;
-    
     border-radius: 10px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: start;
     display: flex;
     animation: fadeInOut 3s;
+    margin-bottom: 0;
     
   }
 
 header {
     background-color: #ffffff00;
     color: rgba(255, 255, 255, 0);
-    text-align: center;
+    text-align: start;
     padding: 1em;
     
 }
@@ -77,8 +77,8 @@ footer {
 }
 
 #fredaPic {
-    max-width:100%;
-    max-height:100%;
+    max-width:100;
+    max-height:100;
     float: left;
     margin-bottom: 15px;
 }
@@ -114,11 +114,11 @@ footer {
     position: sticky;
     top: 0;
     left: 0;
-    width: 250px;
-    padding: 20px;
+    max-width: 250px;
+    padding: 10px;
     background-color: #ffffff85;
     margin-bottom: 0px;
-    min-width: 300px;
+   
 }
   
 .sidebar .author__content {
@@ -147,11 +147,10 @@ footer {
 }
 
 #cv {
-    font-size: 20px;
-    position: absolute;
+    font-size: 25px;
+    position: sticky;
     top: 0;
-    left: 80px;
-  
+    color: #0f416d;
 }
 
 #linksContainer a {
@@ -159,6 +158,7 @@ footer {
     font-size: 20px;
     margin-bottom: 0px;
 }
+
 #fakeHr {
     border-bottom: 1.5px solid #0927cf4d; 
     padding-bottom: 20px; 

@@ -6,6 +6,8 @@ body {
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
+    min-height: calc(100vh);
+    height: 100%;
 }
 
 html {
@@ -38,7 +40,8 @@ header {
 }
 
 #main {
-    display: flex;
+    display:flex;
+    
 } 
 
 #contentBody {
@@ -74,6 +77,7 @@ footer {
     display: block;
     margin-left: auto;
     margin-right: 0;
+    position: fixed;
 }
 
 #fredaPic {
@@ -117,7 +121,8 @@ footer {
     max-width: 250px;
     padding: 10px;
     background-color: #ffffff85;
-    margin-bottom: 0px;
+    
+    
    
 }
   

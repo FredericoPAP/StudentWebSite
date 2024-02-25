@@ -9,7 +9,7 @@ body {
     min-height: calc(100vh);
     height: 100%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
     #main,
     #contentBody,
     #sidebar {
@@ -17,8 +17,11 @@ body {
       float: none;
       display: block;
       flex-direction: column;
-      background-color: #ffffff85;
       align-items: center;
+    }
+    #contentBody{
+        background-color: #ffffff85;
+        
     }
   } 
 html {

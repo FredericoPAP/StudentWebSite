@@ -9,6 +9,7 @@ body {
     min-height: calc(100vh);
     height: 100%;
 }
+
 @media screen and (max-width: 800px) {
     #main,
     #contentBody,
@@ -21,9 +22,9 @@ body {
     }
     #contentBody{
         background-color: #ffffff85;
-        
     }
-  } 
+} 
+
 html {
     box-sizing: border-box;
     background-color: #fff;
@@ -41,16 +42,14 @@ html {
     text-align: start;
     display: flex;
     animation: fadeInOut 3s;
-    margin-bottom: 0;
-    
-  }
+    margin-bottom: 0;   
+}
 
 header {
     background-color: #ffffff00;
     color: rgba(255, 255, 255, 0);
     text-align: start;
     padding: 1em;
-    
 }
 
 #main {
@@ -63,7 +62,6 @@ header {
     max-width: 250px;
     padding: 10px;
     background-color: #ffffff85;
-    
 }
 
 #contentBody {
@@ -87,7 +85,6 @@ section {
     margin-bottom: 15px;
 }
 
-
 .item {
     margin-bottom: 20px;
 }
@@ -105,16 +102,13 @@ footer {
     margin-right: 0;
 }
 
-
 #fredaPic.img-thumbnail {
     background-color:gainsboro ;
 }
 
 #descBody,#workContent,#publicationsContent,#wipContent,#contentAtBottom {
     font-family:"Gill Sans", sans-serif;
-    
     overflow: hidden;
-    
     padding: auto;
     margin-right: 20px;
 }
@@ -131,10 +125,8 @@ footer {
     --bs-popover-body-padding-x: 1rem;
     --bs-popover-body-padding-y: .5rem;
     size: 300px;
-  }
+}
 
-
-  
 .sidebar .author__content {
     text-align: center; 
     margin-top: 10px; 
@@ -186,7 +178,4 @@ footer {
     50% {
       opacity: 1;
     }
-   
-  }
-
- 
+}

@@ -13,6 +13,7 @@ This is a Single Page Application (SPA) created for a PHD student to showcase th
 - JavaScript (with JQuery lib)
 
 ## Getting Started
+
 1. Open (https://fredam22.github.io/) in your web browser if you want to take a look.
 2. Clone the repository: `git clone https://github.com/FredericoPAP/StudentWebSite.git`;
 

@@ -10,7 +10,7 @@ $(document).ready(function() {
     });
     
     //CV download
-    $("[data-toggle=popover]").popover({html:true})
+    //$("[data-toggle=popover]").popover({html:true})
 
     function clearDynamicContentContainer() {
         dynamicContentContainer.empty();

@@ -1,4 +1,5 @@
 body {
+    
     font-family:"Gill Sans", sans-serif !important;
     margin: 0;
     padding: 0;
@@ -26,6 +27,7 @@ body {
 } 
 
 html {
+    text-align: justify;
     box-sizing: border-box;
     background-color: #fff;
     font-size: 16px;
@@ -42,7 +44,8 @@ html {
     text-align: start;
     display: flex;
     animation: fadeInOut 3s;
-    margin-bottom: 0;   
+    margin-bottom: 0;
+    text-align: justify;   
 }
 
 header {
@@ -156,7 +159,7 @@ footer {
     font-size: 25px;
     position: sticky;
     top: 0;
-    color: #0f416d;
+    color: #10538e;
 }
 
 #linksContainer a {

@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Content Editor</title>
+<style>
+  body { font-family: -apple-system, sans-serif; max-width: 900px; margin: 30px auto; padding: 0 16px; color: #222; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 17px; margin-top: 36px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+  h3 { font-size: 14px; margin: 18px 0 6px; color: #444; }
+  label { display: block; font-size: 12px; font-weight: 600; color: #555; margin: 10px 0 4px; }
+  input[type=text], textarea { width: 100%; box-sizing: border-box; padding: 6px 8px; font-size: 13px;
+    border: 1px solid #ccc; border-radius: 4px; font-family: inherit; }
+  textarea { min-height: 60px; resize: vertical; }
+  .item-block { border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px; margin-bottom: 12px; background: #fafafa; }
+  .row { display: flex; gap: 8px; }
+  .row > div { flex: 1; }
+  button { cursor: pointer; border: 1px solid #999; background: #fff; border-radius: 4px; padding: 5px 10px; font-size: 12px; }
+  button.remove { border-color: #c0392b; color: #c0392b; }
+  button.add { margin-top: 6px; }
+  #topbar { position: sticky; top: 0; background: #fff; padding: 12px 0; border-bottom: 1px solid #ddd; z-index: 10;
+    display: flex; gap: 10px; align-items: center; }
+  #status { font-size: 12px; color: #777; }
+  #downloadBtn { background: #1a73e8; color: #fff; border-color: #1a73e8; font-weight: 600; }
+  #downloadBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <input type="file" id="fileInput" accept="application/json">
+  <button id="downloadBtn" disabled>Download updated content.json</button>
+  <span id="status">Load content.json to begin</span>
+</div>
+
+<h1>Site content editor</h1>
+<p style="font-size:13px;color:#666">
+  Load your <code>content.json</code>, edit any field below, then download the updated file and commit it
+  to your repo (replacing the old one) to publish the changes. Fields ending in "HTML" accept basic tags
+  like <code>&lt;strong&gt;</code>, <code>&lt;i&gt;</code>, and <code>&lt;a href="..."&gt;</code>.
+</p>
+
+<div id="form" style="display:none">
+
+  <h2>Personal</h2>
+  <label>Name</label><input type="text" data-path="personal.name">
+  <label>CV file/URL</label><input type="text" data-path="personal.cvUrl">
+  <label>Photo file/URL</label><input type="text" data-path="personal.photo">
+  <label>Email</label><input type="text" data-path="personal.email">
+
+  <h3>Role lines (HTML)</h3>
+  <div id="roleLinesList"></div>
+  <button class="add" data-add="personal.roleLines">+ Add role line</button>
+
+  <h3>Social links</h3>
+  <div id="socialLinksList"></div>
+  <button class="add" data-add="personal.socialLinks">+ Add social link</button>
+
+  <h3>Footer</h3>
+  <label>Footer logo file/URL</label><input type="text" data-path="personal.footer.logo">
+  <label>Footer link URL</label><input type="text" data-path="personal.footer.url">
+
+  <h2>Bio / Description</h2>
+  <label>Description (HTML)</label>
+  <textarea data-path="descriptionHtml" style="min-height:120px"></textarea>
+
+  <h2>Teaching</h2>
+  <div id="teachingList"></div>
+  <button class="add" data-add="teaching">+ Add teaching entry</button>
+
+  <h2>Research</h2>
+  <div id="researchList"></div>
+  <button class="add" data-add="research">+ Add research category</button>
+
+</div>
+
+<script>
+let data = null;
+
+function getAt(obj, path) {
+  return path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
+}
+function setAt(obj, path, value) {
+  const keys = path.split('.');
+  const last = keys.pop();
+  const target = keys.reduce((o, k) => o[k], obj);
+  target[last] = value;
+}
+
+function bindSimpleFields() {
+  document.querySelectorAll('[data-path]').forEach(el => {
+    const path = el.getAttribute('data-path');
+    el.value = getAt(data, path) ?? '';
+    el.addEventListener('input', () => {
+      setAt(data, path, el.value);
+    });
+  });
+}
+
+function renderRoleLines() {
+  const wrap = document.getElementById('roleLinesList');
+  wrap.innerHTML = '';
+  data.personal.roleLines.forEach((val, i) => {
+    const block = document.createElement('div');
+    block.className = 'item-block';
+    block.innerHTML = `
+      <textarea>${val.replace(/</g, '&lt;')}</textarea>
+      <button class="remove">Remove</button>`;
+    const ta = block.querySelector('textarea');
+    ta.addEventListener('input', () => { data.personal.roleLines[i] = ta.value; });
+    block.querySelector('.remove').addEventListener('click', () => {
+      data.personal.roleLines.splice(i, 1);
+      renderRoleLines();
+    });
+    wrap.appendChild(block);
+  });
+}
+
+function renderSocialLinks() {
+  const wrap = document.getElementById('socialLinksList');
+  wrap.innerHTML = '';
+  data.personal.socialLinks.forEach((link, i) => {
+    const block = document.createElement('div');
+    block.className = 'item-block';
+    block.innerHTML = `
+      <label>Icon file/URL</label><input type="text" class="icon">
+      <label>Link URL</label><input type="text" class="url">
+      <label>Label</label><input type="text" class="label">
+      <button class="remove">Remove</button>`;
+    block.querySelector('.icon').value = link.icon;
+    block.querySelector('.url').value = link.url;
+    block.querySelector('.label').value = link.label;
+    block.querySelector('.icon').addEventListener('input', e => link.icon = e.target.value);
+    block.querySelector('.url').addEventListener('input', e => link.url = e.target.value);
+    block.querySelector('.label').addEventListener('input', e => link.label = e.target.value);
+    block.querySelector('.remove').addEventListener('click', () => {
+      data.personal.socialLinks.splice(i, 1);
+      renderSocialLinks();
+    });
+    wrap.appendChild(block);
+  });
+}
+
+function renderTeaching() {
+  const wrap = document.getElementById('teachingList');
+  wrap.innerHTML = '';
+  data.teaching.forEach((val, i) => {
+    const block = document.createElement('div');
+    block.className = 'item-block';
+    block.innerHTML = `
+      <label>Entry ${i + 1} (HTML)</label>
+      <textarea></textarea>
+      <button class="remove">Remove</button>`;
+    const ta = block.querySelector('textarea');
+    ta.value = val;
+    ta.addEventListener('input', () => { data.teaching[i] = ta.value; });
+    block.querySelector('.remove').addEventListener('click', () => {
+      data.teaching.splice(i, 1);
+      renderTeaching();
+    });
+    wrap.appendChild(block);
+  });
+}
+
+function renderResearch() {
+  const wrap = document.getElementById('researchList');
+  wrap.innerHTML = '';
+  data.research.forEach((cat, ci) => {
+    const catBlock = document.createElement('div');
+    catBlock.className = 'item-block';
+    catBlock.innerHTML = `
+      <div class="row">
+        <div><label>Category id</label><input type="text" class="cat-id"></div>
+        <div><label>Category label</label><input type="text" class="cat-label"></div>
+      </div>
+      <button class="remove">Remove category</button>
+      <h3>Items</h3>
+      <div class="items-wrap"></div>
+      <button class="add-item add">+ Add item</button>`;
+
+    catBlock.querySelector('.cat-id').value = cat.id;
+    catBlock.querySelector('.cat-label').value = cat.label;
+    catBlock.querySelector('.cat-id').addEventListener('input', e => cat.id = e.target.value);
+    catBlock.querySelector('.cat-label').addEventListener('input', e => cat.label = e.target.value);
+    catBlock.querySelector('.remove').addEventListener('click', () => {
+      data.research.splice(ci, 1);
+      renderResearch();
+    });
+
+    const itemsWrap = catBlock.querySelector('.items-wrap');
+    function renderItems() {
+      itemsWrap.innerHTML = '';
+      cat.items.forEach((item, ii) => {
+        const itemBlock = document.createElement('div');
+        itemBlock.className = 'item-block';
+        itemBlock.innerHTML = `
+          <label>Title (HTML)</label>
+          <textarea class="title-html"></textarea>
+          <label>Body (HTML)</label>
+          <textarea class="body-html"></textarea>
+          <button class="remove">Remove item</button>`;
+        itemBlock.querySelector('.title-html').value = item.titleHtml;
+        itemBlock.querySelector('.body-html').value = item.bodyHtml || '';
+        itemBlock.querySelector('.title-html').addEventListener('input', e => item.titleHtml = e.target.value);
+        itemBlock.querySelector('.body-html').addEventListener('input', e => item.bodyHtml = e.target.value);
+        itemBlock.querySelector('.remove').addEventListener('click', () => {
+          cat.items.splice(ii, 1);
+          renderItems();
+        });
+        itemsWrap.appendChild(itemBlock);
+      });
+    }
+    renderItems();
+    catBlock.querySelector('.add-item').addEventListener('click', () => {
+      cat.items.push({ titleHtml: '', bodyHtml: '' });
+      renderItems();
+    });
+
+    wrap.appendChild(catBlock);
+  });
+}
+
+function renderAll() {
+  bindSimpleFields();
+  renderRoleLines();
+  renderSocialLinks();
+  renderTeaching();
+  renderResearch();
+  document.getElementById('form').style.display = 'block';
+  document.getElementById('downloadBtn').disabled = false;
+  document.getElementById('status').textContent = 'Loaded — editing in memory. Download when done.';
+}
+
+document.getElementById('fileInput').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      data = JSON.parse(ev.target.result);
+      renderAll();
+    } catch (err) {
+      document.getElementById('status').textContent = 'Error: invalid JSON file';
+    }
+  };
+  reader.readAsText(file);
+});
+
+document.getElementById('downloadBtn').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'content.json';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById('topbar').addEventListener('click', e => {
+  if (e.target.dataset.add === 'personal.roleLines') { data.personal.roleLines.push(''); renderRoleLines(); }
+});
+document.querySelectorAll('[data-add]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const path = btn.getAttribute('data-add');
+    if (path === 'personal.roleLines') { data.personal.roleLines.push(''); renderRoleLines(); }
+    if (path === 'personal.socialLinks') { data.personal.socialLinks.push({ icon: '', url: '', label: '' }); renderSocialLinks(); }
+    if (path === 'teaching') { data.teaching.push(''); renderTeaching(); }
+    if (path === 'research') { data.research.push({ id: '', label: '', items: [] }); renderResearch(); }
+  });
+});
+</script>
+</body>
+</html>

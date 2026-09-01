@@ -1,51 +1,35 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: border-box;
+    text-align: justify;
+    background-color: #fff;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-family: "Gill Sans", sans-serif;
+}
+
 body {
-    
-    font-family:"Gill Sans", sans-serif !important;
+    font-family: "Gill Sans", sans-serif !important;
     margin: 0;
     padding: 0;
     background-image: url('output_image.jpeg');
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed;
-    min-height: calc(100vh);
+    background-attachment: scroll;
+    min-height: 100vh;
     height: 100%;
-}
-
-@media screen and (max-width: 800px) {
-    #main,
-    #contentBody,
-    #sidebar {
-      width: 100%;
-      float: none;
-      display: block;
-      flex-direction: column;
-      align-items: center;
-    }
-    #contentBody{
-        background-color: #ffffff85;
-    }
-} 
-
-html {
-    text-align: justify;
-    box-sizing: border-box;
-    background-color: #fff;
-    font-size: 16px;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    font-family:"Gill Sans", sans-serif;
-}
-
-#squareText {
-    background-color: #ffffff9e; 
-    padding: 20px;
-    border-radius: 10px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: start;
     display: flex;
-    animation: fadeInOut 3s;
-    margin-bottom: 0;
-    text-align: justify;   
+    flex-direction: column;
+}
+
+a:not(#cv) {
+    color: #337ab7;
 }
 
 header {
@@ -56,103 +40,117 @@ header {
 }
 
 #main {
-    display:flex;
-    
-} 
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    flex: 1 0 auto;
+    min-height: calc(100vh - 120px);
+}
+
 .sidebar {
     top: 0;
     left: 0;
-    max-width: 250px;
-    padding: 10px;
-    background-color: #ffffff85;
+    flex: 0 0 280px;
+    max-width: 280px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.673);
 }
 
+.sidebar .w3-round {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+#fredaPic {
+    color: rgb(1, 1, 1);
+    text-align: center;
+    float: none;
+    margin-bottom: 15px;
+}
+
+#profilePhoto.img-thumbnail {
+    max-width: 120px;
+    max-height: 120px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    background-color: gainsboro;
+}
+
+.sidebar .author__content {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.author__bio {
+    margin: 10px 0;
+    font-size: 15px;
+    overflow-wrap: break-word;
+}
+
+.personalLinks {
+    padding-left: 0;
+}
+
+.personalLinks li {
+    margin-bottom: 10px;
+    list-style: none;
+    overflow-wrap: break-word;
+}
+
+.social-icons img {
+    margin-right: 10px;
+}
+
+/* ---------- Main Content Body ---------- */
 #contentBody {
-    flex-grow: 2; 
-    padding: 20px;
-    min-width: 200px;
-    max-width: 1000px;
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 30px;
     font-size: 18px;
+}
+
+#squareText {
+    background-color: rgba(255, 255, 255, 0.62);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    animation: fadeInOut 3s;
+    margin-bottom: 0;
+    text-align: justify;
+    width: 100%;
+    max-width: 100%;
 }
 
 section {
     margin: 20px;
 }
 
-#fredaPic {
-    color:rgb(1, 1, 1);
-    text-align: center; 
-     max-width:100;
-    max-height:100;
-    float: left;
-    margin-bottom: 15px;
-}
-
 .item {
     margin-bottom: 20px;
 }
 
-footer {
-    background-color:  #ffffff85;
-    color: white;
-    text-align:center;
-    padding: 10px;
-    bottom: 0;
-    width: 100%;
-    margin-right: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: 0;
-}
-
-#fredaPic.img-thumbnail {
-    background-color:gainsboro ;
-}
-
-#descBody,#workContent,#publicationsContent,#wipContent,#contentAtBottom {
-    font-family:"Gill Sans", sans-serif;
-    overflow: hidden;
-    padding: auto;
-    margin-right: 20px;
+#descBody, #workContent, #publicationsContent, #wipContent, #contentAtBottom {
+    font-family: "Gill Sans", sans-serif;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 #teachingButtom {
     color: #0e1010;
 }
 
-.btn popovers {
-    --bs-popover-max-width: 200px;
-    --bs-popover-border-color: var(--bd-violet-bg);
-    --bs-popover-header-bg: var(--bd-violet-bg);
-    --bs-popover-header-color: var(--bs-white);
-    --bs-popover-body-padding-x: 1rem;
-    --bs-popover-body-padding-y: .5rem;
-    size: 300px;
-}
-
-.sidebar .author__content {
-    text-align: center; 
-    margin-top: 10px; 
-    margin-right: 10px;
-}
-  
-.author__bio {
-    margin: 10px 0; 
-    font-size: 15px;
-}
-  
-.personalLinks li {
-    margin-bottom: 10px;
-    list-style: none;
-}
-  
-.social-icons img {
-    margin-right: 10px;
-}
-  
 #research, #teaching {
-    margin-right: 50px;
-    font-size: 30px;
+    margin-right: 25px;
+    font-size: 1.8rem;
+    text-decoration: none;
 }
 
 #cv {
@@ -165,20 +163,79 @@ footer {
 #linksContainer a {
     margin-right: 20px;
     font-size: 20px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
+    display: inline-block;
 }
 
 #fakeHr {
-    border-bottom: 1.5px solid #0927cf4d; 
-    padding-bottom: 20px; 
-    margin-bottom: 20px
+    border-bottom: 1.5px solid rgba(9, 39, 207, 0.3);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.673);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-top: auto;
 }
 
 @keyframes fadeInOut {
-    0% {
-      opacity: 0;
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+@media screen and (max-width: 768px) {
+    #main {
+        flex-direction: column;
     }
-    50% {
-      opacity: 1;
+
+    .sidebar,
+    #contentBody {
+        flex: 1 1 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    #contentBody {
+        background-color: rgba(255, 255, 255, 0.85);
+        padding: 20px;
+    }
+
+    #squareText {
+        padding: 15px;
+    }
+}
+
+/* Small Phone Adjustments */
+@media screen and (max-width: 480px) {
+    #contentBody {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    #research, #teaching {
+        font-size: 1.3rem;
+        margin-right: 15px;
+    }
+
+    #cv {
+        font-size: 18px;
+    }
+
+    #linksContainer a {
+        font-size: 16px;
+        margin-right: 12px;
+    }
+
+    .sidebar {
+        padding: 12px;
+    }
+
+    #profilePhoto.img-thumbnail {
+        max-width: 90px;
+        max-height: 90px;
     }
 }

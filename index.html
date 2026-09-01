@@ -9,116 +9,58 @@
 
   <link rel="stylesheet" href="css/index.css">
   <link rel="icon" href="/academic.ico" sizes="any">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#fafafa">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-   integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
-   integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
 
   <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="js/app.js"></script>
   <script src="https://kit.fontawesome.com/133a409c74.js" crossorigin="anonymous"></script>
-  </head>
+</head>
 
 <body>
   <header>
-           <a href="CV_FM_V2.pdf" id="cv"  type="button" class="btn btn-link" target="_blank">Curriculum Vitae</a>
-           <p id="fakeHr" ></p>
-          
-</header>
-<div role="main" id="main">
-  <div class="sidebar sticky">
-    <div itemscope="" itemtype="http://schema.org/Person">
-      <h1 id="fredaPic"><a id="goToHome" href="#home">Frederica Mendonça</a></h1>
-        <div class="w3-round"><a><img id ="fredaPic" class="img-thumbnail" src="frederica_mendonca.jpg"></a>
+    <a href="#" id="cv" type="button" class="btn btn-link" target="_blank">Curriculum Vitae</a>
+    <p id="fakeHr"></p>
+  </header>
+
+  <div role="main" id="main">
+    <div class="sidebar sticky">
+      <div itemscope="" itemtype="http://schema.org/Person">
+        <h1 id="fredaPic"><a id="goToHome" href="#home"><span id="personName"></span></a></h1>
+        <div class="w3-round">
+          <a><img id="profilePhoto" class="img-thumbnail" src=""></a>
         </div>
-        <div class="author__content">
-          <p class="author__bio" style="font-size:15px; margin-top: 15px;"><strong>PHD Candidate </strong><br>
-            <strong><a href="https://www2.novasbe.unl.pt/en/" target="_blank" style="text-decoration:none">Nova SBE</a></strong></p>
-          <p class="author__bio" style="font-size:15px;"><strong>Research Affiliate</strong><br>
-            <strong><a href="https://shorturl.at/aqEGN" target="_blank" style="text-decoration:none">NOVAFRICA</a>
-            </strong></p>
-        </div>
+        <div class="author__content" id="authorBio"></div>
         <div>
-          <ul class="personalLinks">
-            <li>
-                </i>&nbsp; frederica.mendonca@novasbe.pt</li>
-            <li><a href="https://shorturl.at/orDPX" target="_blank">
-                <img src="x_logo.png" style="width:20px;height:20px;"> @fredam221</a></li>
-           
-            <li><a href="https://shorturl.at/dER29" target="blank">
-                <img src="linkedIn_logo.png" style="width:20px;height:20px;">frederica-mendonça
-                </a></li>
-            <li><br>
-            </li>
-          </ul>
+          <ul class="personalLinks"></ul>
         </div>
       </div>
+    </div>
+
+    <div id="contentBody">
+      <a href="#research" id="research">Research</a>
+      <a href="#teaching" id="teaching">Teaching</a>
+      <p style="border-bottom: 1.5px solid #0927cf4d; padding-bottom: 20px; margin-bottom: 20px"></p>
+
+      <div id="linksContainer"></div>
+      <div id="squareText">
+        <div id="contentContainer"></div>
+        <div id="teachingExp" style="display: none;"></div>
+        <div id="descBody"></div>
+        <div class="researchContent"></div>
       </div>
-<div id="contentBody">
-  <a href="#research" id ="research">Research</a>
-    <a href="#teaching" id="teaching">Teaching</a>
-    <p style="border-bottom: 1.5px solid #0927cf4d; padding-bottom: 20px; margin-bottom: 20px"></p>
-<div id="linksContainer"></div>
-<div id="squareText">
-  <div id="contentContainer"></div>
-  <div id="teachingExp" style="display: none;">
-    <p><strong>Development Economics</strong> (graduate), &nbsp;grader, &nbsp;Nova SBE, &nbsp;Portugal; &nbsp;Instructor:&nbsp; <a target="_blank" href="https://www.pedrovicente.org/">Pedro Vicente</a>&nbsp;2025-;</p>
-    <p> <strong>Microeconomics</strong> (undergraduate),&nbsp;teaching assistant,&nbsp;Nova SBE;&nbsp; Instructors:&nbsp;<a target="_blank" href="https://www.novasbe.unl.pt/en/faculty-research/faculty/faculty-detail/id/22/antonieta-cunha-e-sa">Antonieta Cunha e Sá</a>,&nbsp;<a target="_blank" href="https://www.novasbe.unl.pt/en/faculty-research/faculty/faculty-detail/id/40/sofia-franco">Sofia Franco</a>,&nbsp;<a target="_blank" href="https://pmrsmartins.wixsite.com/website">Pedro Martins</a>,&nbsp;<a target="_blank" href="https://susanaperalta.com/">Susana Peralta</a>,&nbsp;<a target="_blank" href="https://anafontouragouveia.wordpress.com">Ana Fontoura Gouveia</a> 2019-;</p>
-<p><strong>Development Economics</strong> (undergraduate), &nbsp;teaching assistant, &nbsp;Nova SBE, &nbsp;Portugal; &nbsp;Instructor:&nbsp; <a target="_blank" href="https://sites.google.com/site/girardvictoire/home">Victoire Girard</a>&nbsp;2023-;</p>
-<p><strong>European Economy: Governance and crisis</strong> (graduate), grader, Nova SBE, Portugal; &nbsp;Instructors:&nbsp; <a target="_blank" href="https://www.novasbe.unl.pt/en/faculty-research/faculty/faculty-detail/id/30/jose-m-tavares">José Tavares</a> and <a target="_blank" href="https://portugal.representation.ec.europa.eu/antonio-vicente_pt">António Vicente</a>&nbsp;2023;</p>
-<p><strong>Public Policy </strong>(graduate),&nbsp; grader,&nbsp; Nova SBE, Portugal;&nbsp; Instructor: <a target="_blank" href="https://www.novasbe.unl.pt/en/faculty-research/faculty/faculty-detail/id/38/paulo-corte-real">Paulo Côrte-Real</a>&nbsp;2022;</p>
-<p><strong>Macroeconomics of Financial Markets</strong> (graduate),&nbsp; grader,&nbsp; Nova SBE, &nbsp;Portugal;&nbsp; Instructor: &nbsp;<a target="_blank" href="http://madinakaramysheva.com/">Madina Karamysheva</a>&nbsp;2022;</p>
+      <div id="contentAtBottom"></div>
+    </div>
   </div>
-<div id="descBody"><p>Hi! I am a PhD Student in Economics at Nova School of Business and Economics.</p> <p>I am affiliated with NOVAFRICA Knowledge Center.</p>
-    <p>My research interests centre around urbanism and public policy design in developing countries.</p> <p>I have extensive experience designing and implementing field surveys and experiments.
-    <p>I am currently working in Mozambique.</p> </div>
-<div class="researchContent">
-<div id="workContent" class="content" style="display: none;">
-  <a href="migquel.pdf" target="_blank"><strong>On the Political Economy of Urbanization: Experimental Evidence from Mozambique</strong>
-  </a>(with <a target="_blank"href="http://www.alexarmand.org/">Alex Armand</a>, <a target="_blank" href="https://waynesandholtz.com/">Wayne Sandholtz</a>, and <a target="_blank" href="https://www.pedrovicente.org/">Pedro Vicente</a>)<p>
-    Urbanization is a force for economic structural change and is underway in Sub-Saharan Africa. However,
-the slow pace of these transformations in some countries likely results from contrary political interests
-at the central level. We study the political impacts of a randomized program integrating rural migrants
-in Mozambique, sponsored by a city government. In the program, local leaders had an active role in the
-face-to-face coaching of migrants. When looking at behaviors around the municipal elections of 2023, we
-find that the program increased the political mobilization of local leaders whom we observe conducting
-more electoral campaigning. Migrants turn out to the election more often, measured by recording inked
-fingers, and are observed to use more political objects, despite the limited labor market impacts of the
-integration program. We conclude that helping urbanization can be in the political interest of local
-governments.
-  </p>
-    <p><strong>Teacher mobility matters!</strong>  On teacher absenteeism and students’ learning in Angola
-    (with <a target="_blank" href="https://www.pedrovicente.org/">Pedro Vicente</a>)<i>. Draft available upon request.</i></p>
-    We examine the effect of teacher absenteeism on students’ educational outcomes.We collected survey data and implemented standardized tests in Cuanza Sul,Angola and use them to show that there are negative returns to teacher absenteeism on student performance.<br>Acknowledging the existing selection problem,we use an instrumental variable approach and compare teachers who share similar contexts but face different costs of attendance due to the distance to which they live from school – either measured in kilometres walked or minutes spent travelling from home to school.<br>We argue that teachers that live further away or that take longer to get to school face high costs of attendance that increase the probability of them being absent. We also find that over time, teachers’ absenteeism has made it impossible for students’ outcomes to improve, which urges the need for policy interventions aiming at tackling this phenomenon.
-  
-  </div>
-<div id="publicationsContent" class="content" style="display: none;">
-  
-  <a href="ClustersBicycle.pdf"><p><strong>Clusters of Bicycle Taxi Operators and their Main Service Operation Patterns:</strong></a><br> Case Study of Quelimane, Mozambique
-  (with <a target="_blank" href="https://scholar.google.com/citations?hl=en&user=fZ3VvHkAAAAJ">Classio Mendiate</a>, <a target="_blank" href="https://www.researchgate.net/profile/Alphonse-Nkurunziza-2">Alphonse Nkurunziza</a> and <a target="_blank" href="https://www.pedrovicente.org/">Pedro Vicente</a>)<br>
-  East African Journal of Science, Technology and Innovation, Vol. 3, No.3, 2022.<br></p>
-  &nbsp;Bicycle taxi is a vital means of informal public transport service in most Sub-Saharan African cities, and for this reason, understanding who operates this service, and how they operate could help define initiatives to promote this service. This study considered clusters of bicycle taxi operators and their main service operation patterns.<br>&nbsp;A survey was conducted among 105 regular bicycle taxi operators in Quelimane, Mozambique. Twostep cluster analysis identified homogeneous groups of bicycle taxi operators based on six socio-economic factors (age, income, education, household composition, bicycle ownership, and residence location). A Mann-Whitney U test was employed to compare pairs of clusters of bicycle taxi operators regarding a set of taxi services operation variables, such as the number of passengers carried daily, daily revenues, and service hours. Four clusters of bicycle taxi operators were identified which are, less-educated operators from large households (C1), educated migrants (C2), less-educated bicycle renters (C3), and young cyclists from small households (C4). When comparing differences in service operation patterns per cluster of bicycle taxi operators, the study showed that people in C1 produced fewer bicycle taxi trips than those in C2 and C4. For daily earnings, people in C2 earn more than those in C1 and C3. For service hours, individuals in C2 cycle long service hours when compared to those in C1, which could be harmful to their health.<br> &nbsp;The result of this study could reorient bicycle taxi service promotional policies to make the service more sustainable.  
-   </div>
-<div id="wipContent" class="content" style="display: none;">
-  <p><strong>Introducing ReCycling in a Mozambican City.</strong><i> In the field.</i></p>
-  </div>
-</div>
-</div>
-<div id="contentAtBottom"></div>
-</div>
-</div>   
 </body>
+
 <footer>
-  <a id="novaSbe" href="https://www.novasbe.unl.pt" target="blank">
-      <img src="novaSBE_logo.png"  
-      style="width:80px;height:42px;"></a>
+  <a id="novaSbe" href="" target="blank">
+    <img src="" style="width:80px;height:42px;">
+  </a>
 </footer>
 
 </html>
